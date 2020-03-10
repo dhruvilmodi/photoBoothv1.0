@@ -14,6 +14,27 @@ class Photobooth{
         this.redBtn = document.querySelector("#redEffect");
         this.splitBtn = document.querySelector("#splitEffect");
         this.greenScreenBtn = document.querySelector("#greenScreenEffect");
+        // adding listeners to our effects button
+        this.redBtn.addEventListener("click", () => {
+            this.red = !this.red;
+            this.split = false;
+            this.greenScreen = false;
+            console.log(`red: ${this.red}`);
+            
+        });
+        this.splitBtn.addEventListener("click", () => {
+            this.red = false;
+            this.split = !this.split;
+            this.greenScreen = false;
+            console.log(`split: ${this.split}`);
+        });
+        this.greenScreenBtn.addEventListener("click", () => {
+            this.red = false;
+            this.split = false;
+            this.greenScreen = !this.greenScreen;
+            console.log(`green screen: ${this.greenScreen}`);
+        });
+        // *the button for the camera
     }
         // declare variables for whether effects play
             // red effect
@@ -42,3 +63,5 @@ class Photobooth{
             // will check if an effect is present, if so, grab the pixels
                 // add the effect to the pixels, then put the pixels on the context
 }
+
+let photo = new Photobooth();
