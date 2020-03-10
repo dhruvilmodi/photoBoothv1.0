@@ -4,8 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photobooth</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- goolge fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <header>
+        <h1>Photobooth</h1>
+    </header>
+    <main>
+        <article id="controls">
+            <form>
+                <h2>Colour Range Selector</h2>
+                <fieldset class="rgb">
+                    <label for="rmin">Red Min:</label>
+                    <input type="range" min="0" max="255" name="rmin">
+                    <label for="rmax">Red Max:</label>
+                    <input type="range" min="0" max="255" name="rmax">
+                </fieldset>
+
+                <fieldset class="rgb">
+                    <label for="gmin">Green Min:</label>
+                    <input type="range" min="0" max="255" name="gmin">
+                    <label for="gmax">Green Max:</label>
+                    <input type="range" min="0" max="255" name="gmax">
+                </fieldset>
+                
+                <fieldset class="rgb">
+                    <label for="bmin">Blue Min:</label>
+                    <input type="range" min="0" max="255" name="bmin">
+                    <label for="bmax">Blue Max:</label>
+                    <input type="range" min="0" max="255" name="bmax">
+                </fieldset>
+
+                <fieldset>
+                    <h2>Effects Selection</h2>
+                    <section id="filters">
+                        <input type="button" id="redEffect" value="Red Filter">
+                        <input type="button" id="splitEffect" value="Split Filter">
+                        <input type="button" id="greenScreenEffect" value="Green Screen">
+                    </section>
+                </fieldset>
+                <button id="camButton">Take Photo</button>
+            </form>
+        </article>
+        <article id="feeds">
+            <section>
+                <h2>Original Feed</h2>
+                <video class="player"></video>
+            </section>
+            <section>
+                <h2>Effect Feed</h2>
+                <canvas class="photo"></canvas>
+            </section>
+        </article>
+        <section class="strip"></section>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
