@@ -1,5 +1,20 @@
 // class of photobooth
+class Photobooth{
     // constructor
+    constructor(){
+        this.red = false;
+        this.split = false;
+        this.greenScreen = false;
+        this.video = document.querySelector(".player");
+        this.canvas = document.querySelector(".photo");
+        this.ctx = this.canvas.getContext('2d');
+        this.strip = document.querySelector(".strip");
+        this.shutter = document.querySelector("#camButton");
+        // *control buttons for effects bellow
+        this.redBtn = document.querySelector("#redEffect");
+        this.splitBtn = document.querySelector("#splitEffect");
+        this.greenScreenBtn = document.querySelector("#greenScreenEffect");
+    }
         // declare variables for whether effects play
             // red effect
             // green screen
@@ -9,7 +24,7 @@
             // context
             // strip
             // !todo: snap
-            // shudder
+            // shutter
         // set up button for adding effects
             // turn on wanted effect, turn off other effects
                 // use for greenscreen, red and split
@@ -26,3 +41,4 @@
             // will draw the video on to the canvas
             // will check if an effect is present, if so, grab the pixels
                 // add the effect to the pixels, then put the pixels on the context
+}
