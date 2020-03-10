@@ -35,6 +35,11 @@ class Photobooth{
             console.log(`green screen: ${this.greenScreen}`);
         });
         // *the button for the camera
+        this.shutter.addEventListener("click", () => this.takePhoto());
+    }
+    takePhoto(){
+        console.log("Say CHEEEESSEE!");
+        
     }
         // declare variables for whether effects play
             // red effect
