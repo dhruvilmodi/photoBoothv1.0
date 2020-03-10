@@ -13,6 +13,17 @@
         <h1>Photobooth</h1>
     </header>
     <main>
+        <article id="feeds">
+            <section>
+                <h2>Original Feed</h2>
+                <video class="player"></video>
+            </section>
+            <section>
+                <h2>Effect Feed</h2>
+                <canvas class="photo"></canvas>
+            </section>
+        </article>
+        <section class="strip"></section>
         <article id="controls">
             <form>
                 <h2>Colour Range Selector</h2>
@@ -48,17 +59,6 @@
                 <button id="camButton">Take Photo</button>
             </form>
         </article>
-        <article id="feeds">
-            <section>
-                <h2>Original Feed</h2>
-                <video class="player"></video>
-            </section>
-            <section>
-                <h2>Effect Feed</h2>
-                <canvas class="photo"></canvas>
-            </section>
-        </article>
-        <section class="strip"></section>
     </main>
     <script src="script.js"></script>
 </body>
