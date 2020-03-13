@@ -36,10 +36,20 @@ class Photobooth{
         });
         // *the button for the camera
         this.shutter.addEventListener("click", () => this.takePhoto());
+        this.getVideo();
+        this.video.addEventListener("canplay", () => {
+            this.paintToCanvas();
+        });
     }
     takePhoto(){
-        console.log("Say CHEEEESSEE!");
-        
+        // console.log("Say CHEEEESSEE!");
+        const data = this.canvas.toDataURL('image/jpg');
+        const link = document.createElement('a');
+        link.href = data;
+        link.setAttribute("download","Beast");
+        link.textContent = "Download Image";
+        link.innerHTML = `<img src="${data}" alt="A tough beast"/>`;
+        this.strip.insertBefore(link, this.strip.firstChild);
     }
         // declare variables for whether effects play
             // red effect
@@ -59,9 +69,54 @@ class Photobooth{
             // will call paintToCanvas
 
     // getVideo function
+    getVideo(){
         // get video from our devices
+        navigator.mediaDevices.getUserMedia({
+            video: true,
+            audio: false
+        })
+        .then(localMediaStream => {
+            this.video.srcObject = localMediaStream;
+            this.video.play();
+        })
+        .catch(error => {
+            console.error("they don't want video", error);
+        })
+    }
 
     // paint to canvas function
+    paintToCanvas(){
+        const width = this.video.videoWidth;
+        const height = this.video.videoHeight;
+        this.canvas.width = width;
+        this.canvas.height = height;
+
+        return setInterval(() => {
+            // draw video onto context
+            this.ctx.drawImage(this.video,0,0,width,height);
+            // extract the pixel data
+            let pixels = this.ctx.getImageData(0,0,width,height);
+            if (this.red == true) {
+                // send the pixel data to red effect
+                pixels = this.redEffect(pixels);
+            }
+            // put the modified pixed onto the screen
+            this.ctx.putImageData(pixels,0,0);
+        }, 16)
+    }
+    redEffect(pixels){
+        for (let i = 0; i < pixels.data.length; i+= 4) {
+            // red
+            pixels.data[i] = pixels.data[i] + 200;
+            // green
+            pixels.data[i+1] = pixels.data[i+1] -45;
+            // blue
+            pixels.data[i+2] = pixels.data[i+2] *0.5;
+            // alpha
+            pixels.data[i+3];
+        }
+        return pixels;
+    }
         // set width and height of the video and canvas
         // run a set interval
             // will draw the video on to the canvas

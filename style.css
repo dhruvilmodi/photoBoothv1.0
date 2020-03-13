@@ -5,8 +5,8 @@
 
 body{
     height: 100vh;
-    overflow: hidden;
-    background-image: url(./images/bg.jpg);
+    background-color: black;
+    text-align: center;
 }
 
 h1,h2,h3,h4,h5,h6,p,fieldset,textarea,input,form, button, section{
@@ -14,7 +14,7 @@ h1,h2,h3,h4,h5,h6,p,fieldset,textarea,input,form, button, section{
 }
 
 h1{
-    color: firebrick;
+    color: goldenrod;
     text-align: center;
     margin-top: 10px;
 }
@@ -23,8 +23,6 @@ h2{
     color: dodgerblue;
 }
 
-input[type="range"]{
-}
 
 input[type="button"]{
     padding: 10px;
@@ -44,18 +42,18 @@ input[type="button"]:hover{
 
 fieldset{
     border: 0;
+    justify-items: space-evenly;
 }
 
 .rgb{
-    display: flex;
-    justify-content: space-between;
+    flex-flow: block;
 }
 
 form{
     display: flex;
     flex-direction: column;
-    width: 40vw;
-    line-height: 40px;
+    width: 30vw;
+    line-height: 30px;
     justify-content: center;
     margin: 10px auto;
     border-radius: 5px;
@@ -70,6 +68,8 @@ form{
     justify-content: space-evenly;
     margin: 10px auto;
     width: 50vw;
+    height: 100px;
+    height: auto;
     padding: 20px;
 }
 
@@ -77,10 +77,14 @@ form{
     text-align: center;
 }
 
+#feeds h2{
+    color: goldenrod;
+}
+
 button{
-    width: 100%;
+    width: 20%;
     padding: 15px;
-    margin-top: 10px;
+    margin: 10px auto 40px auto;
     border: 0;
     border-radius: 5px;
     box-shadow: 0px 0px 5px 0px #999;
@@ -89,6 +93,12 @@ button{
     color: #000;
     font-size: 12pt;
     transition: 0.3s ease-in-out;
+    outline: none;
+}
+
+#filters{
+    display: flex;
+
 }
 
 button:hover{
@@ -96,18 +106,31 @@ button:hover{
     color: #FFFFFF;
 }
 
-#filters{
-    display: flex;
-    justify-content: space-between;
-}
-
 .strip{
-    padding: 2rem;
+    position: absolute;
+    width: 25vw;
+    height: 95vh;
+    top: 10px;
+    overflow-y: scroll;
 }
 
 .strip img{
     width: 100px;
+    background: #FFFFFF;
     overflow-x: scroll;
+    margin: 10px;
     padding: 0.8rem 0.8rem 2.5rem 0.8rem;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+video{
+    width: 90%;
+    padding: 5px;
+    display: none;
+}
+
+canvas{
+    width: 90%;
+    padding: 5px;
+
 }
